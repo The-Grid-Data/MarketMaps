@@ -1,7 +1,7 @@
 import pandas as pd
 
-csv1_file = 'Files/tgs5_solana.csv'
-csv2_file = 'Files/tgs7_solana.csv'
+csv1_file = 'Files/mm_tgs5_solana.csv'
+csv2_file = 'Files/mm_tgs7_solana.csv'
 
 csv1 = pd.read_csv(csv1_file)
 csv2 = pd.read_csv(csv2_file)
