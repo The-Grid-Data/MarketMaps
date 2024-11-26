@@ -43,11 +43,7 @@ query GetLogosForMM {
                       }
                     },
                     {
-                      SupportsProducts: {
-                        Product: {
-                          id: {_eq: "22"}
-                        }
-                      }
+                      SupportsProducts: {SupportsProduct: {id: {_eq: "22"}}}
                     }
                   ]
                 }
@@ -141,17 +137,23 @@ def process_data(data):
 
     for profile in profiles:
         try:
-            profile_name = profile['name']
-            profile_id = profile['id']
+            profile_name = profile.get('name', 'Unknown')
+            profile_id = profile.get('id', 'Unknown')
             logo_url = profile.get('logo')
             profile_status = profile.get('ProfileStatus', {})
             status_name = profile_status.get('name', 'Unknown')
             sector = profile.get('ProfileSector', {}).get('name', 'Uncategorized')
 
-            products = profile.get('Root', {}).get('Products', [])
-            assets = profile.get('Root', {}).get('Assets', [])
-            product_type = ", ".join([product.get('ProductType', {}).get('name', '') for product in products]) or "N/A"
-            asset_type = ", ".join([asset.get('AssetType', {}).get('name', '') for asset in assets]) or "N/A"
+            root_data = profile.get('Root', {})
+            products = root_data.get('Products', [])
+            assets = root_data.get('Assets', [])
+            if not isinstance(products, list):
+                products = []
+            if not isinstance(assets, list):  
+                assets = []
+
+            product_type = ", ".join([product.get('ProductType', {}).get('name', 'N/A') for product in products]) or "N/A"
+            asset_type = ", ".join([asset.get('AssetType', {}).get('name', 'N/A') for asset in assets]) or "N/A"
 
             logo_content = download_logo(logo_url)
             if logo_content:
@@ -186,12 +188,21 @@ def process_data(data):
 
             sector_counts[sector] += 1
 
-        except (KeyError, TypeError) as e:
+        except Exception as e:
             skipped_items.append({
                 'id': profile.get('id', 'Unknown ID'),
                 'name': profile.get('name', 'Unknown Name'),
                 'reason': str(e)
             })
+
+    print(f"Total profiles fetched: {len(profiles)}")
+    print(f"Total profiles processed: {len(results)}")
+    print(f"Total profiles skipped: {len(skipped_items)}")
+
+    if skipped_items:
+        print("Skipped profiles:")
+        for skipped in skipped_items:
+            print(f"- ID: {skipped['id']}, Name: {skipped['name']}, Reason: {skipped['reason']}")
 
     return tree, skipped_items, logos, results, csv_data, sector_counts
 
