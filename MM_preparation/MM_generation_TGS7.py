@@ -74,6 +74,22 @@ query GetLogosForMM {
     ProfileSector {
       name
     }
+    Root {
+      Products(where: {isMainProduct: {_eq: "1"}}) {
+        id
+        name
+        ProductType {
+          name
+        }
+      }
+      Assets {
+        id
+        name
+        AssetType {
+          name
+        }
+      }
+    }
   }
 }
 """
@@ -132,6 +148,11 @@ def process_data(data):
             status_name = profile_status.get('name', 'Unknown')
             sector = profile.get('ProfileSector', {}).get('name', 'Uncategorized')
 
+            products = profile.get('Root', {}).get('Products', [])
+            assets = profile.get('Root', {}).get('Assets', [])
+            product_type = ", ".join([product.get('ProductType', {}).get('name', '') for product in products]) or "N/A"
+            asset_type = ", ".join([asset.get('AssetType', {}).get('name', '') for asset in assets]) or "N/A"
+
             logo_content = download_logo(logo_url)
             if logo_content:
                 parsed_url = urlparse(logo_url)
@@ -146,16 +167,20 @@ def process_data(data):
                 'id': profile_id,
                 'name': profile_name,
                 'status': status_name,
-                'logo': new_filename
+                'logo': new_filename,
+                'product_type': product_type,
+                'asset_type': asset_type
             })
 
-            results.append((profile_name, profile_id, status_name, sector, bool(new_filename)))
+            results.append((profile_name, profile_id, status_name, sector, product_type, asset_type, bool(new_filename)))
 
             csv_data.append({
                 'name': profile_name,
                 'gridid': profile_id,
                 'sector': sector,
                 'status_name': status_name,
+                'product_type': product_type,
+                'asset_type': asset_type,
                 'logo_url': logo_url
             })
 
@@ -178,7 +203,6 @@ def create_zip_file(logos, results_content, csv_content):
 
     with zipfile.ZipFile(zip_buffer, 'a', zipfile.ZIP_DEFLATED, False) as zip_file:
         for filepath, content in logos.items():
-            #print(f"Adding logo to ZIP: {filepath}")
             zip_file.writestr(filepath, content)
 
         zip_file.writestr(f'solana_results_{current_time}.txt', results_content)
@@ -213,11 +237,11 @@ Folder Structure:
             content += f"  {subfolder}/ ({len(profiles)} profiles)\n"
 
     content += "\nProcessed Profiles:\n"
-    content += "Name                 ID        Status       Sector                         Logo\n"
-    content += "-" * 80 + "\n"
+    content += "Name                 ID        Status       Sector                         ProductType      AssetType     Logo\n"
+    content += "-" * 100 + "\n"
     for result in results:
-        name, id_, status_name, sector, logo_success = result
-        content += f"{name:<20} {id_:<9} {status_name:<12} {sector:<30} {'✓' if logo_success else '✗'}\n"
+        name, id_, status_name, sector, product_type, asset_type, logo_success = result
+        content += f"{name:<20} {id_:<9} {status_name:<12} {sector:<30} {product_type:<15} {asset_type:<15} {'✓' if logo_success else '✗'}\n"
 
     content += "\nSkipped Profiles:\n"
     for item in skipped:
@@ -228,7 +252,7 @@ Folder Structure:
 def generate_csv_content(csv_data):
     """Generate CSV content from the collected data."""
     output = io.StringIO()
-    fieldnames = ['name', 'gridid', 'sector', 'status_name', 'logo_url']
+    fieldnames = ['name', 'gridid', 'sector', 'status_name', 'product_type', 'asset_type', 'logo_url']
     writer = csv.DictWriter(output, fieldnames=fieldnames)
     writer.writeheader()
     for row in csv_data:
