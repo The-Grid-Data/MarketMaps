@@ -1,0 +1,109 @@
+name,gridid,sector,status_name,product_type,asset_type,logo_url
+Solana,88,Blockchain Platforms,Active,L1,Currency,https://img.thegrid.id/upload/a8ea71ac63e8e30a92fc4b4b4cc6583c4317a69c52c0e321902662b21439a575.svg
+Jupiter,89,Finance,Active,DEX Aggregator ,Governance,https://img.thegrid.id/upload/93b2ba6d5d68fdfb658773bceece20fb9e02c951fbe026c56c02d5f927bd8350.svg
+Raydium,90,Finance,Active,Decentralised Exchange,Governance,https://img.thegrid.id/upload/f88b86cfba17e96efd33f04719e9cf1a704c60a89a6e28af71489016c0262317.svg
+Nosana,95,Infrastructure,Active,DePin,Utility,https://img.thegrid.id/harvest/313b5bbc52f937422601bd1aacefb1bd8c5719d2d7eff460e31b1c5c4ba761ce.svg
+Hivemapper,106,Data & Analytics,Active,DePin,Utility,https://img.thegrid.id/upload/f631b911687d0ede5c3ca753d01bf22d3852f6869e599be0e781e5f09ce63ce1.svg
+Wormhole,108,Infrastructure,Active,Bridge,Utility,https://img.thegrid.id/upload/df2bbc0e110596ec97172de9e2bb1ad405fbb390da26590f73d2567b98b7e073.svg
+Render Network,109,Infrastructure,Active,DePin,"Utility, Utility",https://img.thegrid.id/upload/eaf94a173a0950b22a57dafb7af51ad2ebb238a2eaaf6b83d50dce4ca201c047.svg
+Tensor,112,NFTs,Active,NFT Marketplace,"NFT, Governance",https://img.thegrid.id/upload/4b32eaac23cd1576cdb5015dc97ac66b0a2d078acb6642c9b5ab75bcff110bf4.png
+Save,114,Finance,Active,Decentralised Borrowing & Lending,"Digital Reward Assets, Utility",https://img.thegrid.id/upload/ecc1cd4a8c357ecb44990c22222f6ae581cff1635ebd17bcccf6f09afdc4e130.svg
+Solblaze,115,Infrastructure,Active,Liquid Staking,Governance,https://img.thegrid.id/upload/4ff57fe6059c872345e000fa68228b0ca95323adb986d1b735a4e5a64e30f271.svg
+Marginfi,126,Finance,Active,Decentralised Borrowing & Lending,"Stablecoin, -",https://img.thegrid.id/upload/746fc3224be548e879b530894e8ce3ba7badeda84fbf65e43a6e6485d0223892.svg
+Drift,128,Finance,Active,Decentralised Exchange,Governance,https://img.thegrid.id/upload/543509c72106157735b4457b789199723dfb6eb2872c379a2c6f1ca9b788242b.png
+GooseFX,129,Finance,Active,Yield Aggregator,Utility,https://img.thegrid.id/upload/26ea3035cb8531bf595c9f560ea4e111674a4e99af3ade5c94151b0716476b97.svg
+Star Atlas,132,Gaming,Active,Game,"Utility, Governance",https://img.thegrid.id/upload/1f61cd5abce6df9280d6434ad105fc546eea0f033dbdf596e7a2ae65f2554791.png
+Helium Network,133,Infrastructure,Active,DePin,"Utility, Utility",https://img.thegrid.id/upload/df94fb6a4d5a13aa5179949d4e9d5a18feb6ed17aa7652b359be9f1941f51189.svg
+Helio,135,Payments,Active,Payments Infrastructure,NFT,https://img.thegrid.id/upload/74538be5674f43330798d9bc30ef0f1ecbe7f70d9f5cf254fd80b7eab4c06e88.svg
+Hubble Protocol,159,Payments,Active,Stablecoin Issuance,Stablecoin,https://img.thegrid.id/upload/5a095b3a28b28779fb8b26b698607f0abe84d8e0cd76ade6555319c5659abac5.svg
+Lifinity,160,Finance,Active,Yield Aggregator,"Governance, Utility",https://img.thegrid.id/upload/e9d71566e4700bd20cb5f646df8de74d5ec422b2ab4d1ae5b40caa9897353dd9.svg
+Step Finance,165,Data & Analytics,Active,Digital Assets Terminal,"Governance, Utility",https://img.thegrid.id/upload/67894b33c5f9b271c6619ddbd8f4f51c0e346f30ee06ee29de881450231540de.svg
+Orca,166,Finance,Active,Decentralised Exchange,"Governance, NFT",https://img.thegrid.id/upload/c5e72991f22ea5bf97ee711d9654dc7956bebc14b4c4691b560d686b0a28e7c9.svg
+Marinade,167,Finance,Active,Liquid Staking,Governance,https://img.thegrid.id/harvest/03b01387777cb4112f8992b4fcc35d5bb5664d6cb36beac24536ebd406929c86.svg
+Basis Markets,168,Finance,Active,Digital Assets Terminal,Utility,https://img.thegrid.id/upload/4299089897c8d3fd3324118dcd18349d5417954dac7b18027f4b4408fdc87c27.png
+Hawksight,172,Finance,Active,Decentralised Borrowing & Lending,"Utility, -",https://img.thegrid.id/upload/420b18b240c4cd5fc2d2a75ad7c96fa8074cd6d072477fa807d586237f5325c6.svg
+Zeta Markets,175,Finance,Active,Decentralised Exchange,Utility,https://img.thegrid.id/upload/abc63dc65868341a1ad72564afbcd8c9bb9900664341d494b3a17b63bcb1d33a.svg
+Hxro Network,927,Finance,Active,Decentralised Exchange,Utility,https://img.thegrid.id/upload/d7e662d6e98d2d0b9ed8c87c76b35f8d9e2bc24d768b4957b12b5dcb4ebfc7ce.svg
+Lamas Finance,930,Gaming,Active,Game,Utility,https://img.thegrid.id/upload/dddf0b1970157b0196d8e4bacbbde9f724a775eb47afb0c806228b01f17ebc7d.svg
+DeFi Land,931,Gaming,Active,Game,Utility,https://img.thegrid.id/harvest/569798650aec83d0fac3e6477be1a6b9ef866fd4cccd938a92cb4af519000ee2.svg
+Solanium,933,Finance,Active,Launch Pad,Utility,https://img.thegrid.id/harvest/5dc5d69d4cd72a3f7aa7246e271df9cb421469e08a122c6af94828361f070567.png
+Metaplex,934,Developer Tooling,Active,NFT Issuance Platform,Utility,https://img.thegrid.id/upload/fcff7d747880fcf419398ba2fb6b33d187c623c337573cb458d56cc7762949d1.svg
+Pyth Network,935,Data & Analytics,Active,Oracle,Governance,https://img.thegrid.id/upload/510979b1e8232f0e1e707ed515c3abaf6db5ac2d5c5c325ea935612ce8dfe9b1.svg
+Aurory,938,Gaming,Active,Game,"Utility, NFT",https://img.thegrid.id/upload/3f6c32474c0b73dd3fe7feebb92a52f5911ee12546567208652481f512da0137.svg
+Decimated,939,Gaming,Active,Game,Currency,https://img.thegrid.id/harvest/aab9e3ff2fc515c0e69cdc90445c26610e36e141a69c301dc97568e152e6b3d8.png
+Stepn,951,Gaming,Active,Game,"NFT, Utility",https://img.thegrid.id/harvest/a5d2fdef1268726d4764a97df9355018f88ef90f1bffc2f0e910143452118880.svg
+Magic Eden,955,NFTs,Active,NFT Marketplace,Governance,https://img.thegrid.id/upload/d28f3adb2cdc594e9b35f26725202ee7b608037a1bea0317176908112b8cfbef.png
+Sharky,958,Finance,Active,Decentralised Borrowing & Lending,"Governance, Utility, NFT",https://img.thegrid.id/harvest/84d5b6bef25ba2b306115c138d3998aede9845022899b04a7042a558e9a6a31d.png
+PIP,961,Payments,Active,On/Off Ramp,Utility,https://img.thegrid.id/harvest/e553bd083c3ff0ec3bf58d75f67f84723f5c46146559611ec1b89a95c595d51d.svg
+Parcl,963,Finance,Active,RWA Tokenisation Platform,Utility,https://img.thegrid.id/upload/ec0754035b3a9800d293f8fcf9ab9bb44df6fe2a016a297c66c708cea170db30.png
+Solayer,981,Infrastructure,Active,Liquid Staking,"-, Stablecoin",https://img.thegrid.id/upload/3c529ba68fb1afdfee36ed5563c7c672d43eda94752a87e8f1680c5bca4d54f4.svg
+ALL.ART,985,NFTs,Active,NFT Marketplace,Utility,https://img.thegrid.id/upload/aff22595deeb395e1b1a43f9411d06e8804cc33056d46966061f91eb031e626a.svg
+Credible Finance,987,Finance,Announced,Decentralised Borrowing & Lending,Governance,https://img.thegrid.id/upload/ac7129ff24e1fb8ca916026ccf4350061ff1959978a9424a3d4be4c630efce7f.png
+Jito,993,Infrastructure,Active,Developer Tooling,"Governance, -",https://img.thegrid.id/upload/a7b325d29b439a72c3eba99d433f94cca4736353066ebc8564d7f82572481091.svg
+AgriDex,996,Finance,Announced,RWA Tokenisation Platform,Governance,https://img.thegrid.id/upload/3eb136478fb09be9a41d92243889d6503be7b0084ef6222ca4f18c5dd3c10364.svg
+ZkAGI,997,Developer Tooling,Announced,L2,Utility,https://img.thegrid.id/upload/3d42e85aa3b4beedf4e4074c6cad50d7871bad9797f0fff25bffa0955775393c.svg
+io.net,999,Infrastructure,Active,DePin,Utility,https://img.thegrid.id/upload/cf33805c1e88ee5e29d835383016dbabdcedce5521ebed2369edd2202cbf35b6.svg
+Circle,1194,Payments,Active,Stablecoin Issuance,"Stablecoin, Stablecoin",https://img.thegrid.id/upload/e10ca2aaa006d641a7ddb17486fef62a982dfdabf90df17959de560a0843ea08.svg
+EUROe,1195,Payments,Active,Stablecoin Issuance,Stablecoin,https://img.thegrid.id/upload/daaf31165344d8e79fa36feb9800147b252aa4af55edc770e848d09b83e86884.svg
+Ondo,1200,Finance,Active,RWA Tokenisation Platform,"Stablecoin, Security",https://img.thegrid.id/upload/8d21e4b4737d21a4df51a399dbf88106abd80aab6ef256781e717d64c00c7b03.svg
+ISC,1211,Finance,Active,Stablecoin Issuance,Stablecoin,https://img.thegrid.id/upload/fe2657fd615a9be60ba8826acd3d20db3befe3ee5e8a0ccce1df0758a3dd5173.svg
+Sanctum,1212,Finance,Active,Liquid Staking,"Governance, -",https://img.thegrid.id/harvest/d4dc9d0a0e6a31db8d94ed9267500e0bbd602e6cd60ef063d3b798782ba44c98.svg
+Genopets,1213,Gaming,Active,Game,"Governance, Utility",https://img.thegrid.id/upload/e9cdb33ce2700baa8fbf79043245ea39420822f89f0ade2fb6f954c246358a2a.png
+Taiyo Robotics,1225,NFTs,Active,Game,"NFT, NFT, NFT, Utility, NFT, NFT, Utility, NFT",https://img.thegrid.id/upload/9a71f761d47efcf5c256c2c6f62fa6682de26fc5921795f8be30823c563f963d.svg
+The Backwoods,1227,Gaming,Active,Game,"-, -, NFT",https://img.thegrid.id/upload/ba47e5eb08e1b791fb225ce945b53dd04238d38348a304e27682e5bc1391e965.svg
+Nyan Heroes,1229,Gaming,Announced,Game,"Utility, Utility, NFT",https://img.thegrid.id/upload/5c2c0bd8df48ef8b475dd56af53e057d98d69d4192caaffd545a0967fc3ddcc3.svg
+Kamino Finance,1230,Finance,Active,Decentralised Borrowing & Lending,Utility,https://img.thegrid.id/harvest/cf76e8049d9f859c89ba9d7fb6c3771cc8dfdf682c38b7a19522f1d17d4842ae.png
+Degen Coin Flip,1233,Gaming,Active,Gambling/Casino,NFT,https://img.thegrid.id/upload/12c6cdbc92272ae86ff96ee39b060f4563eb70a16d28d3e2f932a7a374504200.png
+Honeyland,1235,Gaming,Active,Game,"Utility, NFT",https://img.thegrid.id/upload/2889a3e311369dc9bf44a144395be4d3b16d4d3dcfac8e33bb2f5c33880133cb.png
+FluxBeam,1236,Finance,Active,Decentralised Exchange,Utility,https://img.thegrid.id/upload/ab39a232a6b4e0535452f8f5ffd1aee0b5cb36338739660395f4e5823fc0b89b.svg
+Solcasino.io,1243,Gaming,Active,Gambling/Casino,Utility,https://img.thegrid.id/upload/537a0e7b3a75a232e7374247506edc3c95b11369313fafe9818e0d6d51ad4a4d.svg
+Pixiz,1244,Gaming,Active,Game,"Utility, Utility, NFT, NFT, NFT, NFT",https://img.thegrid.id/upload/ae19256e9cbbea66f1a60d18038ac2f4b8e681bbb7e8b51d601eac099f053aad.svg
+Famous Foxes,1247,NFTs,Active,NFT Marketplace,"Currency, NFT, NFT, NFT, NFT",https://img.thegrid.id/upload/e02936cec11dc45da7903012046f2e93754b93fe4a89e0b639a63b25918e3833.png
+Flash Trade,1249,Finance,Active,Decentralised Exchange,NFT,https://img.thegrid.id/upload/186d2449f7228496dc4f815221d71fcff8076660503b2a40d5f1c49a4740c410.svg
+MEMEPad,1250,Meme,Active,Launch Pad,Utility,https://img.thegrid.id/upload/8fd8d83433e2520637d806bd70e38ebe7af87604ab1a1d0091238a9b87961277.svg
+Mango Markets,1253,Finance,Active,Decentralised Exchange,Governance,https://img.thegrid.id/upload/22fb8328b5115ca82b589311ad81c93e01a324c9d12156d6f59c58e8ff916a5d.svg
+Dexlab,1254,Finance,Active,Decentralised Exchange,Utility,https://img.thegrid.id/upload/0e81feb20a4037a71ad81b0be1695e9224916b2111d574f2a301b2b512c32cc5.svg
+Tillarys,1257,NFTs,Active,Game,"NFT, Utility",https://img.thegrid.id/upload/126f892a6a21f2a9cf1569aaad22af56c17cdb66b68a71928e367eb3e8b6dc4d.svg
+Sollong,1260,Infrastructure,Active,DePin,Utility,https://img.thegrid.id/upload/84d85da809d160c2bd9abe16944f8675a4a041eaaaf85b3fffc42aa9aa45ed06.svg
+Slotana,1261,Gaming,Active,Gambling/Casino,Utility,https://img.thegrid.id/upload/d4f5d6379edf10125f94e314d31788f70d7d91d6cca7afcb4ec360dd552de1f0.svg
+The Heist,1268,Gaming,Active,Game,"Utility, Utility, NFT, NFT, NFT",https://img.thegrid.id/upload/335fb32a3e7a7b6c15cadfad6e6556e46405b3753fa4037f993edbaea0cf65f7.svg
+Zeus Network,1274,Infrastructure,Active,Messaging Protocol,Utility,https://img.thegrid.id/upload/a7db1db374dc55738537933216a3cc839f0667b4c080a76d4a3f1f29c8d732de.svg
+DePlan,1275,Payments,Active,FinOps Tooling,Utility,https://img.thegrid.id/upload/3585a6def5d04faa74b9e069ed116879974882f547d768e64395400ef0617ffd.svg
+Amulet Protocol,1282,Finance,Active,Yield Aggregator,Utility,https://img.thegrid.id/upload/ec656a17efc68cb5967a1016b1cd6a1b35b32544bd2df8e00b970f69fc184409.svg
+dVIN,1290,Supply chain,Announced,Decentralised Exchange,Utility,https://img.thegrid.id/upload/78c91acb1ab916fc6d9639cfe9a15583b33b116692f7a8a60c0fff45ffb25ba0.svg
+Solana Bear Gang,1297,NFTs,Active,Game,"NFT, Utility",https://img.thegrid.id/upload/4d7023a79bc4f1e9d7e0a1482c4473f3437d2c41959edb4fd27cb0b4712fcd9c.svg
+Audius,1301,Media,Active,News & Media,Utility,https://img.thegrid.id/upload/b5cd641c2e9d081b4de12b48946070e664a8f7e70ee02a19f7209fed67c87813.png
+CoinChef,1302,Finance,Active,Developer Tooling,"Governance, Governance",https://img.thegrid.id/upload/9f71e11f897176f715832dd0d7a1cd26dc9fa46037748798f00dbb5a07d1b6dc.svg
+Blockasset,1306,Gaming,Active,"Game, Game",Utility,https://img.thegrid.id/harvest/da671893ad240f0f31266c67109a3aa18d0ea74108d4ffa729f1c256b907e459.svg
+ORE,1325,Finance,Active,Node Software,Utility,https://img.thegrid.id/upload/1d272a77466ea3deff1d1a48e957b1bd9340203ef201ece8263f646a50b70ff9.svg
+Paxos,1331,Payments,Active,Stablecoin Issuance,"Stablecoin, Stablecoin, Stablecoin, Stablecoin",https://img.thegrid.id/harvest/4a7fe14875bb2fcdf515a36ca880f24fd51a448020bcb08cf3a0efce72b5d90a.svg
+Saros,1341,Finance,Active,Decentralised Exchange,Utility,https://img.thegrid.id/upload/e36d01f896c721579ee933942b85a04feae574b650774cb1474c82b821f7de7c.svg
+Ethena,1346,Payments,Active,Stablecoin Issuance,Stablecoin,https://img.thegrid.id/upload/fea6d855ea8bd8ef2895bc70f3f7145723762cc73608f81aa7e608762ce56cdf.png
+stabble,1349,Finance,Active,Decentralised Exchange,Utility,https://img.thegrid.id/upload/a1f9271f61e61c911e2d35e23f25cee1b11c9e880e93b3942fa100094fb3ef46.png
+Ensofi,1352,Finance,Active,Decentralised Borrowing & Lending,Governance,https://img.thegrid.id/upload/e3b57d57aa46a734206a037d1049b92326d9d21bdc6017aea7b250b7ff920d01.png
+Solana ID,1366,Infrastructure,Active,Decentralised Identity,Utility,https://img.thegrid.id/upload/2b53dfbf34d60390566fd95ca0f361e2c23a6ad984324161cfa9f8821203e61c.svg
+gmAI,1370,Infrastructure,Active,DePin,Utility,https://img.thegrid.id/upload/8def7a1eba66f1a43cfab9e220c1e896386f675877d63072884dbdf790faa8f9.svg
+MixMob,1378,Gaming,Active,Game,Governance,https://img.thegrid.id/upload/351caf60e46a52f6656a75e4ee7e5110bed87a13d7b68242db9be07cf659f1ec.svg
+Mallow,1390,NFTs,Active,NFT Marketplace,Utility,https://img.thegrid.id/upload/b10a26abbf556b7e5080333a75e620f9c14f30224e0fe26b1bfb39af142f6f88.svg
+Moonboi Universe,1418,Gaming,Announced,Game,Utility,https://img.thegrid.id/upload/4d645fc6578ab217664ab1ae3d674cc004a61113197d38ccec61e896ce0eac0a.png
+Photo Finish,1419,Gaming,Active,Gambling/Casino,Utility,https://img.thegrid.id/upload/e9e078a4695b30abc6902fcbfec5dd597555c4c6007646a3a6fb50c72c75f99b.svg
+Earth From Another Sun,1420,Gaming,Active,Game,"NFT, NFT",https://img.thegrid.id/upload/f4d670f5da30b7b8d97bfa53d176dbb393e133565c65edcc42e059b6028546c3.svg
+UNKJD,1422,Gaming,Active,Game,Utility,https://img.thegrid.id/upload/7851205807ad3ff47eb17585180b5730646a787865d7240c6e60e09b8f31142d.svg
+Valannia,1423,Gaming,Active,NFT Marketplace,NFT,https://img.thegrid.id/upload/b68a738db3a8d9b098c1206322e241294e0383863b11184db4e4a5c8fb129a70.png
+Elixir Games,1425,Gaming,Active,Explorer,"Utility, NFT",https://img.thegrid.id/upload/64c6b487b248c8f2e6327c1232223bc8b2ba2ead5a37f9ba2d0aada1d1906a79.png
+Compute Labs,1428,Infrastructure,Announced,Compute Network,"NFT, Utility",https://img.thegrid.id/upload/956bb75ff70e10da806e39234ea6ddfbc562c56ed4de378b3531cbdeceb6e059.png
+Matrica,1441,Asset Management,Active,Social Platform,"NFT, NFT",https://img.thegrid.id/upload/d2cdb3fce4a2f044a6d90cf0127f6f418f6e79b40a768bee343e7f5cb2cd7d8b.svg
+Polyquest,1460,Finance,Active,Prediction Markets,Utility,https://img.thegrid.id/upload/6328122c5d93f3445418caf28747554a9b9dc4ca0ae3994c20f5957635a69635.png
+Blinks.gg,1472,Developer Tooling,Active,Launch Pad,"Utility, NFT",https://img.thegrid.id/upload/dcbc8860277e640fbff8a3db0e1653ea1af80f724dcc6f869dbd5e0a8540cb9f.png
+Grape,1491,Social,Active,DAO Management Platform,Utility,https://img.thegrid.id/upload/2d9f89e2dbc8b9d1d9aa2c151639cca8e4325d7fae72ed7f50743185eb7c311f.svg
+Vorld,1521,Metaverse,Announced,Game,NFT,https://img.thegrid.id/upload/171fefb3552b078f3dc837158dad41af56f517bd9f939dd7b377a8848b2cbd45.svg
+Starpower,1583,Infrastructure,Active,Node Software,Utility,https://img.thegrid.id/upload/b816047776ee07c7584322ac84289848f903352c455307f2bb041053da230fd2.png
+Blocksmith Labs,1626,Developer Tooling,Active,Explorer,"Utility, NFT",https://img.thegrid.id/upload/7a740f091fafa3733a5065bc2c5bf39b174656f05c34aa71fdc6c2f6536ea1cb.svg
+Hadeswap,1648,NFTs,Active,Market Maker,Governance,https://img.thegrid.id/upload/a4a286178c1694ebb31e5eae2d79ebe4da0af396847d5046556ca59dba46d64c.svg
+Solchat,1652,Social,Active,Messaging Protocol,Utility,https://img.thegrid.id/upload/983de3238a81eff50a8ccfb8ae07f1672199971193ea5f674232d14d6c7f7d6b.png
+Smyths,1655,NFTs,Active,Staking Infra,NFT,https://img.thegrid.id/upload/8f525efd72a8ce66ca9b69f930c22cd7d075799a7d32a8e73234c3e9b9d91171.svg
+Dandies,1662,NFTs,Active,NFT Issuance Platform,NFT,https://img.thegrid.id/harvest/6662d35801bae607192747b8a9a3c456a96277a87b328d5cb56b2995dad7c946.svg
+Crowny,1667,Community & Events,Active,Social Platform,Currency,https://img.thegrid.id/upload/0de9ad9f6cb34d0a0aaebbfbfb9b1ca63c80a84efa12b5c5d0b12e4540e3c2b3.svg
+Synesis One,1672,Data & Analytics,Active,Data,Governance,https://img.thegrid.id/upload/fb887e24e3b7eef5c5c1a90fee936f032c6283821a211350adfb529c9e3a6188.svg
+Okay Bears,1714,Social,Active,Social Platform,NFT,https://img.thegrid.id/upload/1f7fb55ee868006db868e11630f18c825f461e35f85814e3c3e335eb4e636124.svg
+NovaDEX,1716,Finance,Active,Decentralised Exchange,Governance,https://img.thegrid.id/upload/651cd2d2de3255fab9512085955b56d4ee0f4f1385bf7eacbb603c51fc02af1c.svg
