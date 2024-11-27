@@ -36,14 +36,20 @@ query GetLogosForMM {
                 Products: {
                   _or: [
                     {
-                      SmartContractDeployments: {
-                        DeployedOnProduct: {
-                          id: {_eq: "22"}
+                      ProductDeployments: {
+                        SmartContractDeployment: {
+                          DeployedOnProduct: {
+                            id: {_eq: "22"}
+                          }
                         }
                       }
                     },
                     {
-                      SupportsProducts: {SupportsProduct: {id: {_eq: "22"}}}
+                      SupportsProducts: {
+                        SupportsProduct: {
+                          id: {_eq: "22"}
+                        }
+                      }
                     }
                   ]
                 }
