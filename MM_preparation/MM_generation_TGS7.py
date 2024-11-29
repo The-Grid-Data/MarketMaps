@@ -133,6 +133,7 @@ def download_logo(logo_url):
         print(f"Error downloading logo from {logo_url}: {str(e)}")
         return None
 
+
 def process_data(data):
     profiles = data['data']['ProfileInfos']
     tree = defaultdict(lambda: defaultdict(list))
@@ -153,28 +154,29 @@ def process_data(data):
 
             root_data = profile.get('Root', {})
             products = root_data.get('Products', [])
-            has_main_product = any(product.get('isMainProduct') == 1 for product in products)
+            has_main_product = False
+            product_type = "ASSETS"  # Default to ASSETS if no products exist
 
-            if not isinstance(products, list):
-                products = []
+            if isinstance(products, list) and products:
+                has_main_product = any(product.get('isMainProduct') == 1 for product in products)
+                if has_main_product:
+                    main_product = next((product for product in products if product.get('isMainProduct') == 1), None)
+                    product_type = main_product.get('ProductType', {}).get('name', 'N/A') if main_product else "N/A"
+                else:
+                    product_type = products[0].get('ProductType', {}).get('name', 'N/A')
 
-            # Determine Product Type
-            if has_main_product:
-                main_product = next((product for product in products if product.get('isMainProduct') == 1), None)
-                product_type = main_product.get('ProductType', {}).get('name', 'N/A') if main_product else "N/A"
-            else:
-                product_type = "ASSETS"
-
+            # Handle logo download
             logo_content = download_logo(logo_url)
             if logo_content:
                 parsed_url = urlparse(logo_url)
                 file_ext = os.path.splitext(parsed_url.path)[1]
-                safe_filename = "".join([c for c in profile_name if c.isalpha() or c.isdigit() or c == ' ']).rstrip()
+                safe_filename = "".join([c for c in profile_name if c.isalnum() or c == ' ']).rstrip()
                 new_filename = f"{safe_filename}_{profile_id}{file_ext}"
                 logos[f"{sector}/{new_filename}"] = logo_content
             else:
                 new_filename = None
 
+            # Add to tree structure
             tree[sector]['Profiles'].append({
                 'id': profile_id,
                 'name': profile_name,
@@ -184,8 +186,10 @@ def process_data(data):
                 'has_main_product': "Yes" if has_main_product else "No"
             })
 
+            # Add to results for summary
             results.append((profile_name, profile_id, status_name, sector, product_type, bool(new_filename)))
 
+            # Add to CSV data
             csv_data.append({
                 'name': profile_name,
                 'gridid': profile_id,
@@ -196,6 +200,7 @@ def process_data(data):
                 'logo_url': logo_url
             })
 
+            # Update sector counts
             sector_counts[sector] += 1
 
         except Exception as e:
