@@ -1,0 +1,82 @@
+query GetLogosForMM {
+  ProfileInfos(
+    where: {
+      _and: [
+        {
+          _or: [
+            {
+              Root: {
+                Assets: {
+                  AssetDeployments: {
+                    SmartContractDeployment: {
+                      DeployedOnProduct: {
+                        id: {_eq: "22"}
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              Root: {
+                Products: {
+                  _or: [
+                    {
+                      ProductDeployments: {
+                        SmartContractDeployment: {
+                          DeployedOnProduct: {
+                            id: {_eq: "22"}
+                          }
+                        }
+                      }
+                    },
+                    {
+                      SupportsProducts: {
+                        SupportsProduct: {
+                          id: {_eq: "22"}
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          _or: [
+            { profileStatusId: {_eq: 1} },
+            { profileStatusId: {_eq: 2} },
+            { profileStatusId: {_eq: 30} }
+          ]
+        }
+      ]
+    }
+  ) {
+    id
+    name
+    logo
+    ProfileStatus {
+      name
+    }
+    ProfileSector {
+      name
+    }
+    Root {
+      Products(where: {isMainProduct: {_eq: "1"}}) {
+        id
+        name
+        ProductType {
+          name
+        }
+      }
+      Assets {
+        id
+        name
+        AssetType {
+          name
+        }
+      }
+    }
+  }
+}
