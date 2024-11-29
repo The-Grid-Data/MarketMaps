@@ -210,15 +210,6 @@ def process_data(data):
                 'reason': str(e)
             })
 
-    print(f"Total profiles fetched: {len(profiles)}")
-    print(f"Total profiles processed: {len(results)}")
-    print(f"Total profiles skipped: {len(skipped_items)}")
-
-    if skipped_items:
-        print("Skipped profiles:")
-        for skipped in skipped_items:
-            print(f"- ID: {skipped['id']}, Name: {skipped['name']}, Reason: {skipped['reason']}")
-
     return tree, skipped_items, logos, results, csv_data, sector_counts
 
 def generate_csv_content(csv_data):
@@ -231,22 +222,20 @@ def generate_csv_content(csv_data):
         writer.writerow(row)
     return output.getvalue()
 
-
-
-def create_zip_file(logos, results_content, csv_content):
+def create_zip_file(logos, results_content, csv_content, version):
     current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-    zip_filename = f'mm_grid_data_{current_time}.zip'
+    zip_filename = f'mm_solana_grid_data_v{version}_{current_time}.zip'
     zip_buffer = io.BytesIO()
 
     with zipfile.ZipFile(zip_buffer, 'a', zipfile.ZIP_DEFLATED, False) as zip_file:
         for filepath, content in logos.items():
             zip_file.writestr(filepath, content)
 
-        zip_file.writestr(f'solana_results_{current_time}.txt', results_content)
-        zip_file.writestr(f'solana_folder_contents_{current_time}.csv', csv_content)
+        zip_file.writestr(f'solana_results_v{version}_{current_time}.txt', results_content)
+        zip_file.writestr(f'solana_folder_contents_v{version}_{current_time}.csv', csv_content)
 
-    os.makedirs('../Outputs', exist_ok=True)
-    zip_path = os.path.join('../Outputs', zip_filename)
+    os.makedirs(f'../Outputs/v{version}', exist_ok=True)
+    zip_path = os.path.join(f'../Outputs/v{version}', zip_filename)
     with open(zip_path, 'wb') as f:
         f.write(zip_buffer.getvalue())
 
@@ -287,12 +276,13 @@ Folder Structure:
     return content
 
 def main():
+    version = input("Please enter the version: ").strip()
     try:
         data = fetch_data(url, query)
         tree, skipped_items, logos, results, csv_data, sector_counts = process_data(data)
         results_content = generate_results_content(tree, results, skipped_items, len(logos), sector_counts)
         csv_content = generate_csv_content(csv_data)
-        zip_filename = create_zip_file(logos, results_content, csv_content)
+        zip_filename = create_zip_file(logos, results_content, csv_content, version)
 
         print(f"Export completed successfully. Zip file created: {zip_filename}")
     except Exception as e:
