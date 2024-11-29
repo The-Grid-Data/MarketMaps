@@ -77,9 +77,10 @@ query GetLogosForMM {
       name
     }
     Root {
-      Products(where: {isMainProduct: {_eq: "1"}}) {
+      Products {
         id
         name
+        isMainProduct
         ProductType {
           name
         }
@@ -152,14 +153,17 @@ def process_data(data):
 
             root_data = profile.get('Root', {})
             products = root_data.get('Products', [])
-            assets = root_data.get('Assets', [])
+            has_main_product = any(product.get('isMainProduct') == 1 for product in products)
+
             if not isinstance(products, list):
                 products = []
-            if not isinstance(assets, list):  
-                assets = []
 
-            product_type = ", ".join([product.get('ProductType', {}).get('name', 'N/A') for product in products]) or "N/A"
-            asset_type = ", ".join([asset.get('AssetType', {}).get('name', 'N/A') for asset in assets]) or "N/A"
+            # Determine Product Type
+            if has_main_product:
+                main_product = next((product for product in products if product.get('isMainProduct') == 1), None)
+                product_type = main_product.get('ProductType', {}).get('name', 'N/A') if main_product else "N/A"
+            else:
+                product_type = "ASSETS"
 
             logo_content = download_logo(logo_url)
             if logo_content:
@@ -177,10 +181,10 @@ def process_data(data):
                 'status': status_name,
                 'logo': new_filename,
                 'product_type': product_type,
-                'asset_type': asset_type
+                'has_main_product': "Yes" if has_main_product else "No"
             })
 
-            results.append((profile_name, profile_id, status_name, sector, product_type, asset_type, bool(new_filename)))
+            results.append((profile_name, profile_id, status_name, sector, product_type, bool(new_filename)))
 
             csv_data.append({
                 'name': profile_name,
@@ -188,7 +192,7 @@ def process_data(data):
                 'sector': sector,
                 'status_name': status_name,
                 'product_type': product_type,
-                'asset_type': asset_type,
+                'has_main_product': "Yes" if has_main_product else "No",
                 'logo_url': logo_url
             })
 
@@ -211,6 +215,17 @@ def process_data(data):
             print(f"- ID: {skipped['id']}, Name: {skipped['name']}, Reason: {skipped['reason']}")
 
     return tree, skipped_items, logos, results, csv_data, sector_counts
+
+def generate_csv_content(csv_data):
+    """Generate CSV content from the collected data."""
+    output = io.StringIO()
+    fieldnames = ['name', 'gridid', 'sector', 'status_name', 'product_type', 'has_main_product', 'logo_url']
+    writer = csv.DictWriter(output, fieldnames=fieldnames)
+    writer.writeheader()
+    for row in csv_data:
+        writer.writerow(row)
+    return output.getvalue()
+
 
 
 def create_zip_file(logos, results_content, csv_content):
@@ -254,27 +269,17 @@ Folder Structure:
             content += f"  {subfolder}/ ({len(profiles)} profiles)\n"
 
     content += "\nProcessed Profiles:\n"
-    content += "Name                 ID        Status       Sector                         ProductType      AssetType     Logo\n"
-    content += "-" * 100 + "\n"
+    content += "Name                 ID        Status       Sector                         ProductType      Logo\n"
+    content += "-" * 90 + "\n"
     for result in results:
-        name, id_, status_name, sector, product_type, asset_type, logo_success = result
-        content += f"{name:<20} {id_:<9} {status_name:<12} {sector:<30} {product_type:<15} {asset_type:<15} {'✓' if logo_success else '✗'}\n"
+        name, id_, status_name, sector, product_type, logo_success = result
+        content += f"{name:<20} {id_:<9} {status_name:<12} {sector:<30} {product_type:<15} {'✓' if logo_success else '✗'}\n"
 
     content += "\nSkipped Profiles:\n"
     for item in skipped:
         content += f"- ID: {item['id']}, Name: {item['name']}, Reason: {item['reason']}\n"
 
     return content
-
-def generate_csv_content(csv_data):
-    """Generate CSV content from the collected data."""
-    output = io.StringIO()
-    fieldnames = ['name', 'gridid', 'sector', 'status_name', 'product_type', 'asset_type', 'logo_url']
-    writer = csv.DictWriter(output, fieldnames=fieldnames)
-    writer.writeheader()
-    for row in csv_data:
-        writer.writerow(row)
-    return output.getvalue()
 
 def main():
     try:
