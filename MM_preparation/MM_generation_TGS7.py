@@ -100,7 +100,7 @@ query GetLogosForMM {
 def fetch_data(url, query):
     response = requests.post(url, json={'query': query})
     print(f"HTTP Status Code: {response.status_code}")
-    print("Raw Response Content:", response.text[:500])
+    #print("Raw Response Content:", response.text[:500])
 
     if response.status_code == 200:
         try:
@@ -275,19 +275,82 @@ Folder Structure:
 
     return content
 
+
 def main():
     version = input("Please enter the version: ").strip()
+    generation_mode = input("Choose generation mode ('General' or 'Sector'): ").strip().lower()
+
     try:
         data = fetch_data(url, query)
         tree, skipped_items, logos, results, csv_data, sector_counts = process_data(data)
-        results_content = generate_results_content(tree, results, skipped_items, len(logos), sector_counts)
-        csv_content = generate_csv_content(csv_data)
-        zip_filename = create_zip_file(logos, results_content, csv_content, version)
+
+        if generation_mode == "general":
+            results_content = generate_results_content(tree, results, skipped_items, len(logos), sector_counts)
+            csv_content = generate_csv_content(csv_data)
+            zip_filename = create_zip_file(logos, results_content, csv_content, version)
+        elif generation_mode == "sector":
+            print("\nAvailable sectors:")
+            available_sectors = list(sector_counts.keys())
+            for idx, sector in enumerate(available_sectors, 1):
+                print(f"{idx}. {sector}")
+            sector_choice = int(input("\nEnter the number corresponding to your chosen sector: ").strip())
+
+            if 1 <= sector_choice <= len(available_sectors):
+                specific_sector = available_sectors[sector_choice - 1]
+                print(f"\nYou selected: {specific_sector}")
+                filtered_tree, filtered_data, filtered_logos, filtered_results = filter_by_sector(tree, csv_data, logos,
+                                                                                                  results,
+                                                                                                  specific_sector)
+                results_content = generate_results_content(filtered_tree, filtered_results, skipped_items,
+                                                           len(filtered_logos),
+                                                           {specific_sector: len(filtered_results)})
+                csv_content = generate_csv_content(filtered_data)
+                zip_filename = create_sector_based_output(filtered_logos, results_content, csv_content, filtered_tree,
+                                                          version)
+            else:
+                print("Invalid choice. Exiting.")
+                return
+        else:
+            print("Invalid generation mode. Please choose 'general' or 'Sector'.")
+            return
 
         print(f"Export completed successfully. Zip file created: {zip_filename}")
     except Exception as e:
         print(f"An error occurred: {str(e)}")
         traceback.print_exc()
+
+
+def filter_by_sector(tree, csv_data, logos, results, specific_sector):
+
+    filtered_tree = {specific_sector: tree.get(specific_sector, {})}
+    filtered_data = [row for row in csv_data if row['sector'] == specific_sector]
+    filtered_logos = {path: content for path, content in logos.items() if path.startswith(specific_sector)}
+    filtered_results = [result for result in results if result[3] == specific_sector]
+    return filtered_tree, filtered_data, filtered_logos, filtered_results
+
+
+def create_sector_based_output(logos, results_content, csv_content, tree, version):
+
+    current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+    zip_filename = f'mm_solana_sector_data_v{version}_{current_time}.zip'
+    zip_buffer = io.BytesIO()
+
+    with zipfile.ZipFile(zip_buffer, 'a', zipfile.ZIP_DEFLATED, False) as zip_file:
+        zip_file.writestr(f'solana_results_v{version}_{current_time}.txt', results_content)
+        zip_file.writestr(f'solana_folder_contents_v{version}_{current_time}.csv', csv_content)
+
+        for filepath, content in logos.items():
+            sector_folder, filename = os.path.split(filepath)
+            zip_file.writestr(os.path.join(sector_folder, filename), content)
+
+    os.makedirs(f'../Outputs/v{version}', exist_ok=True)
+    zip_path = os.path.join(f'../Outputs/v{version}', zip_filename)
+    with open(zip_path, 'wb') as f:
+        f.write(zip_buffer.getvalue())
+
+    print(f"Sector-based ZIP file created at: {zip_path}")
+    return zip_filename
+
 
 if __name__ == "__main__":
     main()
