@@ -1,15 +1,15 @@
 query GetLogosForMM {
-  ProfileInfos(
+  profileInfos(
     where: {
       _and: [
         {
           _or: [
             {
-              Root: {
-                Assets: {
-                  AssetDeployments: {
-                    SmartContractDeployment: {
-                      DeployedOnProduct: {
+              root: {
+                assets: {
+                  assetDeployments: {
+                    smartContractDeployment: {
+                      deployedOnProduct: {
                         id: {_eq: "22"}
                       }
                     }
@@ -18,21 +18,21 @@ query GetLogosForMM {
               }
             },
             {
-              Root: {
-                Products: {
+              root: {
+                products: {
                   _or: [
                     {
-                      ProductDeployments: {
-                        SmartContractDeployment: {
-                          DeployedOnProduct: {
+                      productDeployments: {
+                        smartContractDeployment: {
+                          deployedOnProduct: {
                             id: {_eq: "22"}
                           }
                         }
                       }
                     },
                     {
-                      SupportsProducts: {
-                        SupportsProduct: {
+                      supportsProducts: {
+                        supportsProduct: {
                           id: {_eq: "22"}
                         }
                       }
@@ -56,24 +56,25 @@ query GetLogosForMM {
     id
     name
     logo
-    ProfileStatus {
+    profileStatus {
       name
     }
-    ProfileSector {
+    profileSector {
       name
     }
-    Root {
-      Products(where: {isMainProduct: {_eq: "1"}}) {
+    root {
+      products {
         id
         name
-        ProductType {
+        isMainProduct
+        productType {
           name
         }
       }
-      Assets {
+      assets {
         id
         name
-        AssetType {
+        assetType {
           name
         }
       }

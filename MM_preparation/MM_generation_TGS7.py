@@ -13,17 +13,17 @@ url = "https://beta.node.thegrid.id/graphql"
 
 query = """
 query GetLogosForMM {
-  ProfileInfos(
+  profileInfos(
     where: {
       _and: [
         {
           _or: [
             {
-              Root: {
-                Assets: {
-                  AssetDeployments: {
-                    SmartContractDeployment: {
-                      DeployedOnProduct: {
+              root: {
+                assets: {
+                  assetDeployments: {
+                    smartContractDeployment: {
+                      deployedOnProduct: {
                         id: {_eq: "22"}
                       }
                     }
@@ -32,21 +32,21 @@ query GetLogosForMM {
               }
             },
             {
-              Root: {
-                Products: {
+              root: {
+                products: {
                   _or: [
                     {
-                      ProductDeployments: {
-                        SmartContractDeployment: {
-                          DeployedOnProduct: {
+                      productDeployments: {
+                        smartContractDeployment: {
+                          deployedOnProduct: {
                             id: {_eq: "22"}
                           }
                         }
                       }
                     },
                     {
-                      SupportsProducts: {
-                        SupportsProduct: {
+                      supportsProducts: {
+                        supportsProduct: {
                           id: {_eq: "22"}
                         }
                       }
@@ -70,25 +70,25 @@ query GetLogosForMM {
     id
     name
     logo
-    ProfileStatus {
+    profileStatus {
       name
     }
-    ProfileSector {
+    profileSector {
       name
     }
-    Root {
-      Products {
+    root {
+      products {
         id
         name
         isMainProduct
-        ProductType {
+        productType {
           name
         }
       }
-      Assets {
+      assets {
         id
         name
-        AssetType {
+        assetType {
           name
         }
       }
@@ -105,11 +105,11 @@ def fetch_data(url, query):
     if response.status_code == 200:
         try:
             data = response.json()
-            if "data" in data and "ProfileInfos" in data["data"]:
+            if "data" in data and "profileInfos" in data["data"]:
                 return data
             else:
                 print("Unexpected response structure:", data)
-                raise Exception("Missing 'ProfileInfos' in response")
+                raise Exception("Missing 'profileInfos' in response")
         except json.JSONDecodeError as e:
             print(f"Error decoding JSON: {str(e)}")
             print(f"Response content: {response.text}")
@@ -135,7 +135,7 @@ def download_logo(logo_url):
 
 
 def process_data(data):
-    profiles = data['data']['ProfileInfos']
+    profiles = data['data']['profileInfos']
     tree = defaultdict(lambda: defaultdict(list))
     skipped_items = []
     logos = {}
@@ -148,12 +148,12 @@ def process_data(data):
             profile_name = profile.get('name', 'Unknown')
             profile_id = profile.get('id', 'Unknown')
             logo_url = profile.get('logo')
-            profile_status = profile.get('ProfileStatus', {})
+            profile_status = profile.get('profileStatus', {})
             status_name = profile_status.get('name', 'Unknown')
-            sector = profile.get('ProfileSector', {}).get('name', 'Uncategorized')
+            sector = profile.get('profileSector', {}).get('name', 'Uncategorized')
 
-            root_data = profile.get('Root', {})
-            products = root_data.get('Products', [])
+            root_data = profile.get('root', {})
+            products = root_data.get('products', [])
             has_main_product = False
             product_type = "ASSETS"  # Default to ASSETS if no products exist
 
@@ -161,9 +161,9 @@ def process_data(data):
                 has_main_product = any(product.get('isMainProduct') == 1 for product in products)
                 if has_main_product:
                     main_product = next((product for product in products if product.get('isMainProduct') == 1), None)
-                    product_type = main_product.get('ProductType', {}).get('name', 'N/A') if main_product else "N/A"
+                    product_type = main_product.get('productType', {}).get('name', 'N/A') if main_product else "N/A"
                 else:
-                    product_type = products[0].get('ProductType', {}).get('name', 'N/A')
+                    product_type = products[0].get('productType', {}).get('name', 'N/A')
 
             # Handle logo download
             logo_content = download_logo(logo_url)
@@ -177,7 +177,7 @@ def process_data(data):
                 new_filename = None
 
             # Add to tree structure
-            tree[sector]['Profiles'].append({
+            tree[sector]['profiles'].append({
                 'id': profile_id,
                 'name': profile_name,
                 'status': status_name,
