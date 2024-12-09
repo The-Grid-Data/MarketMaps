@@ -94,6 +94,12 @@ query GetLogosForMM {
           name
         }
       }
+      socials(where: {name: {}, socialType: {name: {_eq: "Twitter / X"}}}) {
+        name
+        urls {
+          url
+        }
+      }
     }
   }
 }
@@ -156,6 +162,18 @@ def process_data(data):
             status_name = profile_status.get('name', 'Unknown')
             sector = profile.get('profileSector', {}).get('name', 'Uncategorized')
 
+            socials = profile.get('root', {}).get('socials', [])
+            twitter_handle = ''
+            twitter_url = ''
+            if socials:
+                twitter_entry = socials[0]
+                twitter_name = twitter_entry.get('name', '')
+                if twitter_name:
+                    twitter_handle = f"@{twitter_name}"
+                urls = twitter_entry.get('urls', [])
+                if urls:
+                    twitter_url = urls[0].get('url', '')
+
             root_data = profile.get('root', {})
             products = root_data.get('products', [])
             has_main_product = False
@@ -189,7 +207,9 @@ def process_data(data):
                 'status': status_name,
                 'logo': new_filename,
                 'product_type': product_type,
-                'has_main_product': "Yes" if has_main_product else "No"
+                'has_main_product': "Yes" if has_main_product else "No",
+                'twitter_handle': twitter_handle,
+                'twitter_url': twitter_url
             })
 
             # Add to results for summary
@@ -205,7 +225,9 @@ def process_data(data):
                 'status_name': status_name,
                 'product_type': product_type,
                 'has_main_product': "Yes" if has_main_product else "No",
-                'logo_url': logo_url
+                'logo_url': logo_url,
+                'Twitter handle': twitter_handle,
+                'Twitter URL': twitter_url
             })
 
             # Update sector counts
@@ -223,7 +245,7 @@ def process_data(data):
 def generate_csv_content(csv_data):
     """Generate CSV content from the collected data."""
     output = io.StringIO()
-    fieldnames = ['name', 'gridid', 'tagLine', 'descriptionShort', 'sector', 'status_name', 'product_type', 'has_main_product', 'logo_url']
+    fieldnames = ['name', 'gridid', 'tagLine', 'descriptionShort', 'sector', 'status_name', 'product_type', 'has_main_product', 'logo_url', 'Twitter handle', 'Twitter URL']
     writer = csv.DictWriter(output, fieldnames=fieldnames)
     writer.writeheader()
     for row in csv_data:
