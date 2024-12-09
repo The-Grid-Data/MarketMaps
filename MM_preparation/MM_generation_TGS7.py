@@ -70,6 +70,8 @@ query GetLogosForMM {
     id
     name
     logo
+    tagLine        
+    descriptionShort
     profileStatus {
       name
     }
@@ -147,6 +149,8 @@ def process_data(data):
         try:
             profile_name = profile.get('name', 'Unknown')
             profile_id = profile.get('id', 'Unknown')
+            tag_line = profile.get('tagLine', '')
+            short_description = profile.get('descriptionShort', '')
             logo_url = profile.get('logo')
             profile_status = profile.get('profileStatus', {})
             status_name = profile_status.get('name', 'Unknown')
@@ -180,6 +184,8 @@ def process_data(data):
             tree[sector]['profiles'].append({
                 'id': profile_id,
                 'name': profile_name,
+                'tagLine': tag_line,
+                'descriptionShort': short_description,
                 'status': status_name,
                 'logo': new_filename,
                 'product_type': product_type,
@@ -193,6 +199,8 @@ def process_data(data):
             csv_data.append({
                 'name': profile_name,
                 'gridid': profile_id,
+                'tagLine': tag_line,
+                'descriptionShort': short_description,
                 'sector': sector,
                 'status_name': status_name,
                 'product_type': product_type,
@@ -215,7 +223,7 @@ def process_data(data):
 def generate_csv_content(csv_data):
     """Generate CSV content from the collected data."""
     output = io.StringIO()
-    fieldnames = ['name', 'gridid', 'sector', 'status_name', 'product_type', 'has_main_product', 'logo_url']
+    fieldnames = ['name', 'gridid', 'tagLine', 'descriptionShort', 'sector', 'status_name', 'product_type', 'has_main_product', 'logo_url']
     writer = csv.DictWriter(output, fieldnames=fieldnames)
     writer.writeheader()
     for row in csv_data:
