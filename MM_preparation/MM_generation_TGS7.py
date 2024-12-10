@@ -144,7 +144,7 @@ def download_logo(logo_url):
 
 def process_data(data):
     profiles = data['data']['profileInfos']
-    tree = defaultdict(lambda: defaultdict(list))
+    tree = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))  # sector -> product_type -> profiles
     skipped_items = []
     logos = {}
     results = []
@@ -194,12 +194,12 @@ def process_data(data):
                 file_ext = os.path.splitext(parsed_url.path)[1]
                 safe_filename = "".join([c for c in profile_name if c.isalnum() or c == ' ']).rstrip()
                 new_filename = f"{safe_filename}_{profile_id}{file_ext}"
-                logos[f"{sector}/{new_filename}"] = logo_content
+                logos[f"{sector}/{product_type}/{new_filename}"] = logo_content  # Updated path
             else:
                 new_filename = None
 
             # Add to tree structure
-            tree[sector]['profiles'].append({
+            tree[sector][product_type]['profiles'].append({
                 'id': profile_id,
                 'name': profile_name,
                 'tagLine': tag_line,
@@ -259,7 +259,7 @@ def create_zip_file(logos, results_content, csv_content, version):
 
     with zipfile.ZipFile(zip_buffer, 'a', zipfile.ZIP_DEFLATED, False) as zip_file:
         for filepath, content in logos.items():
-            zip_file.writestr(filepath, content)
+            zip_file.writestr(filepath, content)  # filepath includes sector/product_type/
 
         zip_file.writestr(f'solana_results_v{version}_{current_time}.txt', results_content)
         zip_file.writestr(f'solana_folder_contents_v{version}_{current_time}.csv', csv_content)
@@ -287,10 +287,12 @@ Skipped Profiles: {skipped_count}
 
 Folder Structure:
 """
-    for sector, subfolders in tree.items():
+    for sector, product_types in tree.items():
         content += f"{sector}/\n"
-        for subfolder, profiles in subfolders.items():
-            content += f"  {subfolder}/ ({len(profiles)} profiles)\n"
+        for product_type, subfolders in product_types.items():
+            content += f"  {product_type}/\n"
+            for subfolder, profiles in subfolders.items():
+                content += f"    {subfolder}/ ({len(profiles)} profiles)\n"
 
     content += "\nProcessed Profiles:\n"
     content += "Name                 ID        Status       Sector                         ProductType      Logo\n"
@@ -305,6 +307,33 @@ Folder Structure:
 
     return content
 
+def filter_by_sector(tree, csv_data, logos, results, specific_sector):
+    filtered_tree = {specific_sector: tree.get(specific_sector, {})}
+    filtered_data = [row for row in csv_data if row['sector'] == specific_sector]
+    filtered_logos = {path: content for path, content in logos.items() if path.startswith(f"{specific_sector}/")}
+    filtered_results = [result for result in results if result[3] == specific_sector]
+    return filtered_tree, filtered_data, filtered_logos, filtered_results
+
+def create_sector_based_output(logos, results_content, csv_content, tree, version, specific_sector):
+    current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+    zip_filename = f'mm_solana_sector_{specific_sector}_data_v{version}_{current_time}.zip'
+    zip_buffer = io.BytesIO()
+
+    with zipfile.ZipFile(zip_buffer, 'a', zipfile.ZIP_DEFLATED, False) as zip_file:
+        zip_file.writestr(f'solana_results_v{version}_{current_time}.txt', results_content)
+        zip_file.writestr(f'solana_folder_contents_v{version}_{current_time}.csv', csv_content)
+
+        for filepath, content in logos.items():
+            if filepath.startswith(f"{specific_sector}/"):
+                zip_file.writestr(filepath, content)  # filepath includes sector/product_type/
+
+    os.makedirs(f'../Outputs/v{version}', exist_ok=True)
+    zip_path = os.path.join(f'../Outputs/v{version}', zip_filename)
+    with open(zip_path, 'wb') as f:
+        f.write(zip_buffer.getvalue())
+
+    print(f"Sector-based ZIP file created at: {zip_path}")
+    return zip_filename
 
 def main():
     version = input("Please enter the version: ").strip()
@@ -328,15 +357,10 @@ def main():
             if 1 <= sector_choice <= len(available_sectors):
                 specific_sector = available_sectors[sector_choice - 1]
                 print(f"\nYou selected: {specific_sector}")
-                filtered_tree, filtered_data, filtered_logos, filtered_results = filter_by_sector(tree, csv_data, logos,
-                                                                                                  results,
-                                                                                                  specific_sector)
-                results_content = generate_results_content(filtered_tree, filtered_results, skipped_items,
-                                                           len(filtered_logos),
-                                                           {specific_sector: len(filtered_results)})
+                filtered_tree, filtered_data, filtered_logos, filtered_results = filter_by_sector(tree, csv_data, logos, results, specific_sector)
+                results_content = generate_results_content(filtered_tree, filtered_results, skipped_items, len(filtered_logos), {specific_sector: len(filtered_results)})
                 csv_content = generate_csv_content(filtered_data)
-                zip_filename = create_sector_based_output(filtered_logos, results_content, csv_content, filtered_tree,
-                                                          version)
+                zip_filename = create_sector_based_output(filtered_logos, results_content, csv_content, filtered_tree, version, specific_sector)
             else:
                 print("Invalid choice. Exiting.")
                 return
@@ -348,39 +372,6 @@ def main():
     except Exception as e:
         print(f"An error occurred: {str(e)}")
         traceback.print_exc()
-
-
-def filter_by_sector(tree, csv_data, logos, results, specific_sector):
-
-    filtered_tree = {specific_sector: tree.get(specific_sector, {})}
-    filtered_data = [row for row in csv_data if row['sector'] == specific_sector]
-    filtered_logos = {path: content for path, content in logos.items() if path.startswith(specific_sector)}
-    filtered_results = [result for result in results if result[3] == specific_sector]
-    return filtered_tree, filtered_data, filtered_logos, filtered_results
-
-
-def create_sector_based_output(logos, results_content, csv_content, tree, version):
-
-    current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-    zip_filename = f'mm_solana_sector_data_v{version}_{current_time}.zip'
-    zip_buffer = io.BytesIO()
-
-    with zipfile.ZipFile(zip_buffer, 'a', zipfile.ZIP_DEFLATED, False) as zip_file:
-        zip_file.writestr(f'solana_results_v{version}_{current_time}.txt', results_content)
-        zip_file.writestr(f'solana_folder_contents_v{version}_{current_time}.csv', csv_content)
-
-        for filepath, content in logos.items():
-            sector_folder, filename = os.path.split(filepath)
-            zip_file.writestr(os.path.join(sector_folder, filename), content)
-
-    os.makedirs(f'../Outputs/v{version}', exist_ok=True)
-    zip_path = os.path.join(f'../Outputs/v{version}', zip_filename)
-    with open(zip_path, 'wb') as f:
-        f.write(zip_buffer.getvalue())
-
-    print(f"Sector-based ZIP file created at: {zip_path}")
-    return zip_filename
-
 
 if __name__ == "__main__":
     main()
