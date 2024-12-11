@@ -56,6 +56,8 @@ query GetLogosForMM {
     id
     name
     logo
+    tagLine
+    descriptionShort
     profileStatus {
       name
     }
@@ -78,6 +80,15 @@ query GetLogosForMM {
           name
         }
       }
+      socials(where: {name: {}, socialType: {name: {_eq: "Twitter / X"}}}) {
+        name
+        urls {
+          url
+        }
+      }
+    }
+    urls(where: {urlType: {name: {_eq: "Blog"}}}) {
+      url
     }
   }
 }
