@@ -1,0 +1,64 @@
+Old Name,New Name,Old Sector,New Sector,Old Product Type,New Product Type,Status
+Allium,Allium,Data & Analytics,Data & Analytics,OnChain Data API,OnChain Data API,Same
+Atlas3,,Data & Analytics,,Digital Assets Terminal,,Removed
+Birdeye,Birdeye,Data & Analytics,Data & Analytics,Digital Assets Terminal,Trading Terminal,Changed
+,Bitquery,,Data & Analytics,,OnChain Data API,Added
+BlinkFans,BlinkFans,Data & Analytics,Data & Analytics,Digital Assets Terminal,Data Terminal,Changed
+,Bubblemaps,,Data & Analytics,,Data Terminal,Added
+CIDO Ai,,Data & Analytics,,OnChain Data API,,Removed
+Chainalysis,Chainalysis,Data & Analytics,Data & Analytics,OnChain Data API,Onchain Compliance and investigations,Changed
+,Chiyo,,Data & Analytics,,Data,Added
+Cielo,Cielo,Data & Analytics,Data & Analytics,Digital Assets Terminal,Trading Terminal,Changed
+,ClickHouse,,Data & Analytics,,OnChain Data API,Added
+,Codex (Defined),,Data & Analytics,,OnChain Data API,Added
+,Coin Metrics,,Data & Analytics,,Data Terminal,Added
+CoinGecko,CoinGecko,Data & Analytics,Data & Analytics,Digital Assets Terminal,Data Terminal,Changed
+,CryptoRank,,Data & Analytics,,Block Explorer,Added
+Cryptoslam,Cryptoslam,Data & Analytics,Data & Analytics,Data,Data Terminal,Changed
+Cubik,,Data & Analytics,,Launch Pad,,Removed
+DEX Screener,DEX Screener,Data & Analytics,Data & Analytics,Digital Assets Terminal,Trading Terminal,Changed
+,DeFiLlama,,Data & Analytics,,Data Terminal,Added
+Don't Forget To Blink (DFTB),Don't Forget To Blink (DFTB),Data & Analytics,Data & Analytics,Digital Assets Terminal,Data Terminal,Changed
+,Drops,,Data & Analytics,,Block Explorer,Added
+Dune,Dune,Data & Analytics,Data & Analytics,Digital Assets Terminal,Data Terminal,Changed
+,Elliptic,,Data & Analytics,,Onchain Compliance and investigations,Added
+Flipside,Flipside,Data & Analytics,Data & Analytics,Data,Data Terminal,Changed
+,Footprint Analytics,,Data & Analytics,,OnChain Data API,Added
+,Goldsky,,Data & Analytics,,OnChain Data API,Added
+Google,Google,Data & Analytics,Data & Analytics,Developer Tooling,OnChain Data API,Changed
+Hello Moon,Hello Moon,Data & Analytics,Data & Analytics,OnChain Data API,OnChain Data API,Same
+,HindSight VIP,,Data & Analytics,,Block Explorer,Added
+Hivemapper,Hivemapper,Data & Analytics,Data & Analytics,DePin,DePin,Same
+,Itheum,,Data & Analytics,,Data,Added
+KairosTerminal,KairosTerminal,Data & Analytics,Data & Analytics,Digital Assets Terminal,Data Terminal,Changed
+,Messari,,Data & Analytics,,Data Terminal,Added
+Moralis,Moralis,Data & Analytics,Data & Analytics,OnChain Data API,OnChain Data API,Same
+,NFTScan,,Data & Analytics,,Block Explorer,Added
+Nansen,Nansen,Data & Analytics,Data & Analytics,Digital Assets Terminal,Data Terminal,Changed
+Pyth Network,Pyth Network,Data & Analytics,Data & Analytics,Oracle,Oracle,Same
+Reclaim Protocol,Reclaim Protocol,Data & Analytics,Data & Analytics,Decentralised Identity,Decentralised Identity,Same
+,SQD Network,,Data & Analytics,,OnChain Data API,Added
+,SimpleHash,,Data & Analytics,,OnChain Data API,Added
+,SolGlyph,,Data & Analytics,,Data Terminal,Added
+Solana Beach,Solana Beach,Data & Analytics,Data & Analytics,Explorer,Block Explorer,Changed
+Solana Compass,Solana Compass,Data & Analytics,Data & Analytics,Digital Assets Terminal,Staking Data,Changed
+SolanaFM,SolanaFM,Data & Analytics,Data & Analytics,Explorer,Block Explorer,Changed
+Solscan,Solscan,Data & Analytics,Data & Analytics,Explorer,Block Explorer,Changed
+Solstis,Solstis,Data & Analytics,Data & Analytics,Explorer,Block Explorer,Changed
+SonarWatch,SonarWatch,Data & Analytics,Data & Analytics,Digital Assets Terminal,Data Terminal,Changed
+Step Finance,Step Finance,Data & Analytics,Data & Analytics,Digital Assets Terminal,Trading Terminal,Changed
+Switchboard,Switchboard,Data & Analytics,Data & Analytics,Oracle,Oracle,Same
+Synesis One,Synesis One,Data & Analytics,Data & Analytics,Data,Data,Same
+The Graph,The Graph,Data & Analytics,Data & Analytics,OnChain Data API,OnChain Data API,Same
+The Grid,The Grid,Data & Analytics,Data & Analytics,Data,Data,Same
+The Tie,The Tie,Data & Analytics,Data & Analytics,Digital Assets Terminal,Data Terminal,Changed
+,Tiny Astro,,Data & Analytics,,Trading Terminal,Added
+,Token Metrics,,Data & Analytics,,Trading Terminal,Added
+Token Terminal,Token Terminal,Data & Analytics,Data & Analytics,Developer Tooling,Developer Tooling,Same
+,Umbrella Network,,Data & Analytics,,Oracle,Added
+,Unmarshal,,Data & Analytics,,OnChain Data API,Added
+,Vezgo,,Data & Analytics,,OnChain Data API,Added
+Vybe Network,Vybe Network,Data & Analytics,Data & Analytics,OnChain Data API,OnChain Data API,Same
+YutiBot,YutiBot,Data & Analytics,Data & Analytics,Trading Bot,Trading Bot,Same
+,ZettaBlock,,Data & Analytics,,OnChain Data API,Added
+,dEdge Solana Bot,,Data & Analytics,,Block Explorer,Added
