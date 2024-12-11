@@ -101,6 +101,9 @@ query GetLogosForMM {
         }
       }
     }
+    urls(where: {urlType: {name: {_eq: "Blog"}}}) {
+      url
+    }
   }
 }
 """
@@ -174,6 +177,10 @@ def process_data(data):
                 if urls:
                     twitter_url = urls[0].get('url', '')
 
+            # Fetch blog URLs
+            blog_urls = profile.get('urls', [])
+            blog_urls_list = [blog['url'] for blog in blog_urls] if blog_urls else []
+
             root_data = profile.get('root', {})
             products = root_data.get('products', [])
             has_main_product = False
@@ -209,7 +216,8 @@ def process_data(data):
                 'product_type': product_type,
                 'has_main_product': "Yes" if has_main_product else "No",
                 'twitter_handle': twitter_handle,
-                'twitter_url': twitter_url
+                'twitter_url': twitter_url,
+                'blog_urls': ", ".join(blog_urls_list)  # Add blogs here
             })
 
             # Add to results for summary
@@ -227,7 +235,8 @@ def process_data(data):
                 'has_main_product': "Yes" if has_main_product else "No",
                 'logo_url': logo_url,
                 'Twitter handle': twitter_handle,
-                'Twitter URL': twitter_url
+                'Twitter URL': twitter_url,
+                'Blog URLs': ", ".join(blog_urls_list)  # Add blogs here
             })
 
             # Update sector counts
@@ -245,7 +254,8 @@ def process_data(data):
 def generate_csv_content(csv_data):
     """Generate CSV content from the collected data."""
     output = io.StringIO()
-    fieldnames = ['name', 'gridid', 'tagLine', 'descriptionShort', 'sector', 'status_name', 'product_type', 'has_main_product', 'logo_url', 'Twitter handle', 'Twitter URL']
+    fieldnames = ['name', 'gridid', 'tagLine', 'descriptionShort', 'sector', 'status_name', 'product_type',
+                  'has_main_product', 'logo_url', 'Twitter handle', 'Twitter URL', 'Blog URLs']
     writer = csv.DictWriter(output, fieldnames=fieldnames)
     writer.writeheader()
     for row in csv_data:
