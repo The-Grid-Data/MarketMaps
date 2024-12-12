@@ -7,10 +7,9 @@ BlinkFans,BlinkFans,Data & Analytics,Data & Analytics,Digital Assets Terminal,Da
 ,Bubblemaps,,Data & Analytics,,Data Terminal,Added
 CIDO Ai,,Data & Analytics,,OnChain Data API,,Removed
 Chainalysis,Chainalysis,Data & Analytics,Data & Analytics,OnChain Data API,Onchain Compliance and investigations,Changed
-,Chiyo,,Data & Analytics,,Data,Added
+,Chiyo,,Data & Analytics,,Data Terminal,Added
 Cielo,Cielo,Data & Analytics,Data & Analytics,Digital Assets Terminal,Trading Terminal,Changed
 ,ClickHouse,,Data & Analytics,,OnChain Data API,Added
-,Codex (Defined),,Data & Analytics,,OnChain Data API,Added
 ,Coin Metrics,,Data & Analytics,,Data Terminal,Added
 CoinGecko,CoinGecko,Data & Analytics,Data & Analytics,Digital Assets Terminal,Data Terminal,Changed
 ,CryptoRank,,Data & Analytics,,Block Explorer,Added
@@ -18,6 +17,7 @@ Cryptoslam,Cryptoslam,Data & Analytics,Data & Analytics,Data,Data Terminal,Chang
 Cubik,,Data & Analytics,,Launch Pad,,Removed
 DEX Screener,DEX Screener,Data & Analytics,Data & Analytics,Digital Assets Terminal,Trading Terminal,Changed
 ,DeFiLlama,,Data & Analytics,,Data Terminal,Added
+,Defined (Codex),,Data & Analytics,,OnChain Data API,Added
 Don't Forget To Blink (DFTB),Don't Forget To Blink (DFTB),Data & Analytics,Data & Analytics,Digital Assets Terminal,Data Terminal,Changed
 ,Drops,,Data & Analytics,,Block Explorer,Added
 Dune,Dune,Data & Analytics,Data & Analytics,Digital Assets Terminal,Data Terminal,Changed
@@ -26,6 +26,7 @@ Flipside,Flipside,Data & Analytics,Data & Analytics,Data,Data Terminal,Changed
 ,Footprint Analytics,,Data & Analytics,,OnChain Data API,Added
 ,Goldsky,,Data & Analytics,,OnChain Data API,Added
 Google,Google,Data & Analytics,Data & Analytics,Developer Tooling,OnChain Data API,Changed
+,Grass,,Data & Analytics,,Data,Added
 Hello Moon,Hello Moon,Data & Analytics,Data & Analytics,OnChain Data API,OnChain Data API,Same
 ,HindSight VIP,,Data & Analytics,,Block Explorer,Added
 Hivemapper,Hivemapper,Data & Analytics,Data & Analytics,DePin,DePin,Same
