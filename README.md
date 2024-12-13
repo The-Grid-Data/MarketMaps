@@ -29,7 +29,7 @@ Creating ZIP archives.
 Generating summary results and sector-specific outputs.
 Usage
 
-# While running MM_GENERATION_TGS7.py follow the prompts:
+# Follow the prompts:
 
 1. Enter the version number for the export.
 2. Choose between "General" (all data) or "Sector" (specific sector) modes.
