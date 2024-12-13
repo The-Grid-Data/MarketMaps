@@ -10,7 +10,7 @@ Fetch data about Solana profiles, their logos, and related information from a Gr
 Process and categorize profiles based on sectors and product types.
 Generate outputs in CSV and summary formats for:
 - General (all data)
-- Sector-specific subsets
+- Sector-specific data
 
 # Modules
 
