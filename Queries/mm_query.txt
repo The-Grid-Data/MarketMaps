@@ -1,3 +1,5 @@
+GRAPHQL ENDPOINT: https://beta.node.thegrid.id/graphql
+
 query GetLogosForMM {
   profileInfos(
     where: {
