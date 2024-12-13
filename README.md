@@ -1,5 +1,46 @@
 # MarketMaps
 
+# Overview
+
+The MM Data Export Tool is a Python repository designed to query, process, and export profile data from The Grid GraphQL API. 
+
+# Goals
+
+Fetch data about Solana profiles, their logos, and related information from a GraphQL endpoint.
+Process and categorize profiles based on sectors and product types.
+Generate outputs in CSV and summary formats for:
+- General (all data)
+- Sector-specific subsets
+
+# Modules
+
+1. MM_GENERATION_TGS7.py
+The main script to execute the tool.
+Handles user input, fetches data, processes it, and triggers output generation.
+
+2. data_processor.py
+Processes the raw data retrieved from the API.
+Manages the organization of profiles and downloading of logos.
+
+3. helpers.py
+Provides utility functions for:
+Generating CSV content.
+Creating ZIP archives.
+Generating summary results and sector-specific outputs.
+Usage
+
+# While running MM_GENERATION_TGS7.py follow the prompts:
+
+1. Enter the version number for the export.
+2. Choose between "General" (all data) or "Sector" (specific sector) modes.
+3. For Sector mode, select the desired sector from the list.
+
+# Key Features
+
+The Grid API GraphQL Integration: Fetches profile data dynamically.
+Data Categorization: Profiles are categorized by sectors and product types.
+Export Formats: Generates summaries, CSV files, and organized logos.
+
 # Example usage of the endpoint
 
 ```python
