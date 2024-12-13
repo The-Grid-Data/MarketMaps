@@ -3,8 +3,7 @@ import json
 import traceback
 
 from MM_preparation.data_processor import process_data
-from MM_preparation.helpers import generate_results_content, generate_csv_content, create_zip_file, \
-    create_sector_based_output, filter_by_sector
+from MM_preparation.helpers import generate_results_content, generate_csv_content, create_zip_file, create_sector_based_output, filter_by_sector
 
 url = "https://beta.node.thegrid.id/graphql"
 
