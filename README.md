@@ -6,7 +6,7 @@ The MM Data Export Tool is a Python repository designed to query, process, and e
 
 # Goals
 
-Fetch data about Solana profiles, their logos, and related information from a GraphQL endpoint.
+Fetch data about Solana profiles, their logos, and related information from The Grid API GraphQL endpoint.
 Process and categorize profiles based on sectors and product types.
 Generate outputs in CSV and summary formats for: 
 - General (all data)
