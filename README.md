@@ -10,7 +10,7 @@ url = "https://beta.node.thegrid.id/graphql"
 
 query = """
 query MyQuery {
-  ProfileInfos(limit: 100) {
+  profileInfos(limit: 100) {
     name
     descriptionShort
   }
