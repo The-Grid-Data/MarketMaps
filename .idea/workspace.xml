@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff3314e7-7c6d-45ea-9582-808f61aa8d7b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version_comparison/Files/mm_tgs7_DA.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/version_comparison/Results/compared_tgs5_w_tgs7_DA.csv" beforeDir="false" afterPath="$PROJECT_DIR$/version_comparison/Results/compared_tgs5_w_tgs7_DA.csv" afterDir="false" />
-    </list>
+    <list default="true" id="ff3314e7-7c6d-45ea-9582-808f61aa8d7b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,26 +33,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.MM_generation_TGS7.executor&quot;: &quot;Run&quot;,
-    &quot;Python.compare_tgs_generations.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/hugomoura/Desktop/The - Grid_Git/MarketMaps/version_comparison/Files&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.GetSolana.executor": "Run",
+    "Python.GetSolana_sectors.executor": "Run",
+    "Python.MM_generation_TGS7.executor": "Run",
+    "Python.compare_tgs_generations.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "organise__files",
+    "last_opened_file_path": "/Users/hugomoura/Desktop/The - Grid_Git/MarketMaps/version_comparison/Files",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/version_comparison/Files" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/get_Solana_profiles" />
       <recent name="$PROJECT_DIR$/version_comparison/Results" />
       <recent name="$PROJECT_DIR$/version_comparison" />
       <recent name="$PROJECT_DIR$" />
@@ -83,6 +82,8 @@
       <workItem from="1732872016300" duration="314000" />
       <workItem from="1733931949599" duration="3984000" />
       <workItem from="1733955534540" duration="1022000" />
+      <workItem from="1734001023695" duration="2225000" />
+      <workItem from="1734089047309" duration="1514000" />
     </task>
     <servers />
   </component>
@@ -91,6 +92,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MarketMaps$MM_generation_TGS7.coverage" NAME="MM_generation_TGS7 Coverage Results" MODIFIED="1733955547709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MM_preparation" />
+    <SUITE FILE_PATH="coverage/MarketMaps$GetSolana_sectors.coverage" NAME="GetSolana_sectors Coverage Results" MODIFIED="1734003592203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/get_Solana_profiles" />
     <SUITE FILE_PATH="coverage/MarketMaps$compare_tgs_generations.coverage" NAME="compare_tgs_generations Coverage Results" MODIFIED="1733955803012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/version_comparison" />
+    <SUITE FILE_PATH="coverage/MarketMaps$GetSolana.coverage" NAME="GetSolana Coverage Results" MODIFIED="1734003500683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
