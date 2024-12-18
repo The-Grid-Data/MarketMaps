@@ -148,7 +148,7 @@ def transform_data(data):
     return transformed
 
 
-def write_to_csv(data, filename="filtered_profiles.csv"):
+def write_to_csv(data, filename="AM_profiles_filtered_by_productType.csv"):
     if not data:
         print("No data to write to CSV.")
         return
