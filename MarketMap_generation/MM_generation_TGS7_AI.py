@@ -8,7 +8,7 @@ from MarketMap_generation.helpers_AI import generate_results_content, generate_c
 url = "https://beta.node.thegrid.id/graphql"
 
 query = """
-query GetLogosForMM_AI {
+query GetLogosForMM_AI_Solana {
   profileInfos(
     where: {
       _and: [
@@ -23,6 +23,17 @@ query GetLogosForMM_AI {
               tag: {
                 name: {
                   _eq: "AI"
+                }
+              }
+            }
+          }
+        },
+        {
+          root: {
+            profileTags: {
+              tag: {
+                name: {
+                  _eq: "Solana"
                 }
               }
             }
