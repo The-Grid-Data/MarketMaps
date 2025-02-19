@@ -2,8 +2,8 @@ import requests
 import json
 import traceback
 
-from MarketMap_generation.data_processor_mtndao import process_data
-from MarketMap_generation.helpers_mtndao import generate_results_content, generate_csv_content, create_zip_file, create_sector_based_output, filter_by_sector
+from MarketMap_generation.mtndao.data_processor_mtndao import process_data
+from MarketMap_generation.mtndao.helpers_mtndao import generate_results_content, generate_csv_content, create_zip_file
 
 url = "https://beta.node.thegrid.id/graphql"
 

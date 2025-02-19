@@ -64,8 +64,8 @@ def create_sector_based_output(logos, results_content, csv_content, tree, versio
             if filepath.startswith(f"{specific_sector}/"):
                 zip_file.writestr(filepath, content)
 
-    os.makedirs(f'../Outputs/v{version}', exist_ok=True)
-    zip_path = os.path.join(f'../Outputs/v{version}', zip_filename)
+    os.makedirs(f'../mtndao/Outputs/v{version}', exist_ok=True)
+    zip_path = os.path.join(f'../mtndao/Outputs/v{version}', zip_filename)
     with open(zip_path, 'wb') as f:
         f.write(zip_buffer.getvalue())
 
@@ -78,16 +78,15 @@ def create_zip_file(logos, results_content, csv_content, version):
     zip_buffer = io.BytesIO()
 
     with zipfile.ZipFile(zip_buffer, 'a', zipfile.ZIP_DEFLATED, False) as zip_file:
-        # Add logos maintaining only sector folder structure
+        # Add logos maintaining sector folder structure
         for filepath, content in logos.items():
-            # filepath is already in correct format (sector/filename)
             zip_file.writestr(filepath, content)
 
         zip_file.writestr(f'mtndao_results_v{version}_{current_time}.txt', results_content)
         zip_file.writestr(f'mtndao_folder_contents_v{version}_{current_time}.csv', csv_content)
 
-    os.makedirs(f'../Outputs/v{version}', exist_ok=True)
-    zip_path = os.path.join(f'../Outputs/v{version}', zip_filename)
+    os.makedirs(f'../mtndao/Outputs/v{version}', exist_ok=True)
+    zip_path = os.path.join(f'../mtndao/Outputs/v{version}', zip_filename)
     with open(zip_path, 'wb') as f:
         f.write(zip_buffer.getvalue())
 
